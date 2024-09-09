@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqgxl4pmpyyfn"]
+[gd_scene load_steps=5 format=3 uid="uid://dqgxl4pmpyyfn"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_qq5uv"]
 [ext_resource type="Texture2D" uid="uid://bo4whmcamqjwb" path="res://Assets/Ships/playerShip1_green.png" id="2_fsxa7"]
+[ext_resource type="PackedScene" uid="uid://dopg4afa8mdth" path="res://Scenes/bullet.tscn" id="2_rqckl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ggwg"]
 radius = 54.0093
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qq5uv")
+bullet_resource = ExtResource("2_rqckl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1, 0.720002)

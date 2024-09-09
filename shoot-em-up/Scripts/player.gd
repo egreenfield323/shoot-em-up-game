@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 
+@export var bullet_resource: Resource
+
 func _physics_process(delta: float) -> void:
 	
 	var direction = Vector2()
@@ -18,3 +20,9 @@ func _physics_process(delta: float) -> void:
 	velocity = direction.normalized() * SPEED
 	
 	move_and_slide()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("shoot"):
+		var bullet = bullet_resource.instantiate()
+		bullet.position.y -= 80
+		add_child(bullet)

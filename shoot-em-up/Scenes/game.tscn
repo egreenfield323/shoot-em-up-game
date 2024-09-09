@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl1kgkmumeuhd"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_r24ax"]
+[ext_resource type="PackedScene" uid="uid://dqgxl4pmpyyfn" path="res://Scenes/player.tscn" id="1_x3kk8"]
+[ext_resource type="Script" path="res://Scripts/enemy_spawner.gd" id="2_ejc6x"]
+[ext_resource type="PackedScene" uid="uid://bpnapjdhg87or" path="res://Scenes/enemy.tscn" id="3_uu73q"]
+
+[node name="game" type="Node"]
+script = ExtResource("1_r24ax")
+
+[node name="Player" parent="." instance=ExtResource("1_x3kk8")]
+position = Vector2(571, 542)
+
+[node name="enemy spawner" type="Node2D" parent="."]
+script = ExtResource("2_ejc6x")
+enemy_resource = ExtResource("3_uu73q")
+
+[node name="Timer" type="Timer" parent="enemy spawner"]
+wait_time = 2.0
+autostart = true
+
+[node name="score" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 185.0
+offset_bottom = 421.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 700
+text = "0"
+
+[connection signal="timeout" from="enemy spawner/Timer" to="enemy spawner" method="_on_timer_timeout"]

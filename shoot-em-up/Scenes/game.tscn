@@ -10,6 +10,8 @@
 script = ExtResource("1_r24ax")
 
 [node name="world_background" type="Sprite2D" parent="."]
+position = Vector2(-621, 384)
+scale = Vector2(0.409259, 0.409259)
 texture = ExtResource("5_1y64g")
 
 [node name="Player" parent="." instance=ExtResource("1_x3kk8")]
